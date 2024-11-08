@@ -50,3 +50,61 @@ code {
     padding-right: 5px;
     height: 25px;
 }
+
+.wrapper {
+    text-align: center;
+}
+
+.image-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    display: inline;
+    background-color:#282828;
+    padding: 10px;
+}
+
+img{
+    max-width: 95%;
+    height: 70vh;
+    object-fit: cover;
+    border: 10px solid white;
+}
+
+/* .options{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+} */
+.mode{
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    width: 100%;
+ 
+  
+}
+
+span{
+    display: inline-block;
+    padding-right: 10px;
+    min-width: 100px;
+    font-weight: 100;
+
+}
+input{
+    width: 10%;
+    cursor: pointer;
+    margin-right: 50px;
+    max-width: 150px;
+}
+
+.blur{
+    padding-top: 10px;
+}
