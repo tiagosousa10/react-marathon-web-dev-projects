@@ -1,10 +1,13 @@
-import { clear } from '@testing-library/user-event/dist/clear'
 import React, { useEffect, useState } from 'react'
+import img from './logo.png'
+import "./index.css"
+import useLocalStorage from './storage'
 
 const Editor = () => {
-const [html,setHtml] = useState("")
-const [css,setCss] = useState("")
-const [js,setJs] = useState("")
+
+const [html,setHtml] = useLocalStorage("html", "")
+const [css,setCss] = useLocalStorage("css","")
+const [js,setJs] = useLocalStorage("js","")
 const [codepenCode,setCodepenCode] = useState("")
 
 useEffect(() => {
@@ -24,17 +27,32 @@ useEffect(() => {
 
 
   return (
-    <div>
-    <div>
-        <textarea value={html} typeof='text' onChange={(e) => {setHtml(e.target.value)}} />
-        <textarea value={css} typeof='text' onChange={(e) => {setCss(e.target.value)}} />
-        <textarea value={js} typeof='text' onChange={(e) => {setJs(e.target.value)}} />
+    <div className='wrapper'>
+    <div    className='header'>
+        <img src={img} alt='logo'   />
+        <span>Codepen</span>
+    </div>
 
+    <div className='input-cover'>
+        <textarea value={html} typeof='text' className='input' placeholder='html' onChange={(e) => {setHtml(e.target.value)}} />
+        <div className='width' />
+        <textarea value={css} typeof='text'  className='input'  placeholder='css' onChange={(e) => {setCss(e.target.value)}} />
+        <div className='width' />
+        <textarea value={js} typeof='text'  className='input'  placeholder='js' onChange={(e) => {setJs(e.target.value)}} />
     </div>
     
-    <div>
-    </div>
-        {codepenCode}
+    <div className='ouput'>
+<iframe
+    srcDoc={codepenCode}
+    title='output'
+    sandbox='allow-scripts'
+    frameBorder='0'
+    width='100%'
+    height='100%'
+
+/>
+
+    </div>    
     </div>
 
    
